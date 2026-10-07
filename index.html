@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Confirmación - Invitación Especial</title>
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+  <!-- Fondo oscuro con partículas animadas -->
+  <div class="bg-decorations" aria-hidden="true">
+    <div class="glow-orb orb-top"></div>
+    <div class="glow-orb orb-bottom"></div>
+    
+    <!-- Iconos temáticos flotantes -->
+    <div class="particle p1">🕊️</div>
+    <div class="particle p2">✨</div>
+    <div class="particle p3">✝️</div>
+    <div class="particle p4">✨</div>
+    <div class="particle p5">🕊️</div>
+  </div>
+
+  <div id="confettiContainer" class="confetti-container" aria-hidden="true"></div>
+
+  <main class="page-wrapper">
+    <div class="card" id="interactiveCard">
+
+      <!-- Badge de conexión -->
+      <div id="netStatus" class="net-badge online">
+        <span class="status-dot"></span>
+        <span id="netText">En línea</span>
+      </div>
+
+      <!-- Cabecera -->
+      <header class="card-header">
+        <div class="church-icon-wrapper">
+          <svg viewBox="0 0 64 64" fill="none" class="church-svg">
+            <path d="M32 4v10M27 8h10" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M32 14l18 14v28H14V28l18-14z" stroke="#334155" stroke-width="2.5" fill="rgba(255,255,255,0.9)"/>
+            <path d="M28 56V40a4 4 0 0 1 8 0v16" fill="rgba(212,175,55,0.3)" stroke="#D4AF37" stroke-width="2"/>
+            <circle cx="32" cy="28" r="4" stroke="#D4AF37" stroke-width="2"/>
+          </svg>
+        </div>
+        <span class="tag-badge">Mi Confirmación</span>
+        <h1>¡Estás Invitado!</h1>
+      </header>
+
+      <!-- SECCIÓN CON TU FOTO PERSONALIZADA -->
+      <section class="photo-section">
+        <div class="photo-frame">
+          <!-- Reemplaza "tu-foto.jpg" por la imagen que desees colocar -->
+          <img src="tu-foto.jpg" alt="Foto de mi Confirmación" id="userPhoto" class="custom-photo" onerror="this.src='https://via.placeholder.com/150/D4AF37/FFFFFF?text=Tu+Foto+Aquí'">
+          <div class="photo-badge">✝️</div>
+        </div>
+        <p class="subtitle">Acompáñame a compartir este día tan especial e importante de mi fe.</p>
+      </section>
+
+      <div class="divider">
+        <span class="line"></span>
+        <svg class="cross-mini" viewBox="0 0 24 24"><path d="M12 2v20M5 8h14" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <span class="line"></span>
+      </div>
+
+      <!-- Grid de Detalles -->
+      <section class="details-grid">
+        <div class="detail-card">
+          <div class="svg-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <div class="info">
+            <h3>Fecha</h3>
+            <p>Sábado, 15 Nov</p>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="svg-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="info">
+            <h3>Hora</h3>
+            <p>4:00 PM</p>
+          </div>
+        </div>
+
+        <div class="detail-card full">
+          <div class="svg-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="info">
+            <h3>Lugar</h3>
+            <p>Parroquia Central / Salón de Eventos</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Formulario -->
+      <section class="form-section">
+        <h2>Confirmar Asistencia</h2>
+
+        <form id="rsvpForm" novalidate>
+          <div class="form-group">
+            <label for="nombre">Tu Nombre Completo</label>
+            <div class="input-wrapper">
+              <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required autocomplete="name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="asistencia">¿Nos acompañarás?</label>
+            <div class="input-wrapper">
+              <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <select id="asistencia" name="asistencia" required>
+                <option value="" disabled selected>Selecciona tu respuesta...</option>
+                <option value="Sí, asistiré">Sí, asistiré con gusto</option>
+                <option value="No podré asistir">Lo siento, no podré asistir</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" id="submitBtn" class="animated-btn">
+            <span class="btn-text">Confirmar mi Lugar</span>
+          </button>
+        </form>
+
+        <div id="statusMessage" class="status-message" aria-live="polite"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(() => console.log('Service Worker listo.'))
+          .catch(err => console.error('Error SW:', err));
+      });
+    }
+  </script>
+</body>
+</html>
